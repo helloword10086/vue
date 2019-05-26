@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <div id="app">{{message}}
+        <!-- <p class="cool" v-bind:class='isGood ? "good":"bad"'>mmmm</p> -->
+        <p class="cool" v-bind:class='[activeclass]' v-on:click='reverseMsg'>{{msg}}</p>
+        <!-- <p class="cool" v-bind:class='[activeclass]' @click='reverseMsg'>{{msg}}</p> -->
+        <ul>
+            <li v-for="(todo,index) in todos" @click='bas' :data-index="index">{{todo.text}}</li>
+        </ul>
+        <!-- <p>{{content}}</p>
+        <input type="text" v-model="content"> -->
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+               message:'hello',
+               isGood:true,
+               activeclass:'active',
+               todos:[
+                   {text:'xuexi'},
+                   {text:'xuexi'},
+                   {text:'xuexi'}
+               ],
+               content:'',
+               msg:'123'
+
+            },
+            methods:{
+                reverseMsg() {
+                  this.msg= this.msg.split('').reverse().join('')
+                },
+                bas(e){
+                   console.log(e.srcElement.dataset.index)
+                   var i = e.srcElement.dataset.index;
+                   this.todos[i].text = this.todos[i].text.split('').reverse().join('')
+                }
+            }
+           
+        })
+    </script>
+</body>
+</html>
