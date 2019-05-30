@@ -2,6 +2,7 @@
     <div class="main-content">
       <Header></Header>
       <silde/>
+      <router-view/>
     </div>
 </template>
 <script>

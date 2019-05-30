@@ -16,7 +16,7 @@
         </template>
         <el-menu-item-group>
           
-          <el-menu-item index="1-1">用户列表</el-menu-item>
+          <el-menu-item index='/main/userList'>用户列表</el-menu-item>
           <el-menu-item index="1-2">用户信息</el-menu-item>
         </el-menu-item-group>
         
