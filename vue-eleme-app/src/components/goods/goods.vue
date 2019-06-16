@@ -47,6 +47,7 @@
           </li>
         </ul>
       </div>
+       <shopcart ref="shopcart" :selectFoods='selectFoods'/>
     </div>
   </div>
 </template>
@@ -54,6 +55,7 @@
 <script>
 import BScroll from "better-scroll";
 import cartcontrol from '@/components/cartcontrol/cartcontrol'
+import shopcart from '@/components/shopcart'
 export default {
   name: "Goods",
   data() {
@@ -79,7 +81,8 @@ export default {
     
   },
   components: {
-    cartcontrol
+    cartcontrol,
+    shopcart,
   },
   methods: {
     _initScroll() {
