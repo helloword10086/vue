@@ -2,6 +2,7 @@
   <div>
     Clicked:{{$store.state.count}}
    <button @click="$store.commit('increment')">+</button>
+   <button @click="$store.commit('decrement')">-</button>
   </div>
 </template>
 <script>
