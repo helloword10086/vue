@@ -76,7 +76,7 @@ export default {
     }
   },
   
-  mounted() { 
+ Mounted() { 
     console.log(this.$refs.scroll)
       console.log(window.screen.height)
       this.$refs.see.style.height = window.screen.height +'px' 

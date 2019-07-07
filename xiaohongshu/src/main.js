@@ -12,7 +12,7 @@ Vue.use(Vant);
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
 
-Vue.prototype.HOST = "./api"
+//  Vue.prototype.HOST = "./api"
 
 
 /* eslint-disable no-new */
