@@ -7,47 +7,50 @@
           </van-tab>
           <van-tab title="发现">
            <input type="text" placeholder="大家都在授“轻喜剧”">
-             <div class="index-content">
-                <div class="index-left index-all " >
-                  <div class="content-left" v-for=" (item,index)  in left" :key="index">
-                    <img :src='item.note_image'> 
-                    <div class="content-title">
+                 <div class="scroll" ref='wrapper'>
+                  <div class="index-content" >
 
-                        <div class="myself-title">{{item.title}}</div>
-                        
-                    </div>
-                    <div class="content-myself">
-                      <img :src="item.writer_img" alt="" class="myself-url">
-                      <p class="my-name">{{item.writer}}</p>
-                      <div class="zhan" @click="leftagree(index)" >
-                      
-                      <img src="../assets/zhan1.png" alt="" class="myself-zhan" v-if=" item.selected ">
-                      <img src="../assets/zhan.png" alt="" class="myself-zhan" v-else>
-                      <p class="user-num">{{item.like}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="index-right index-all">
-                  <div class="content-right" v-for=" (item,index)  in right" :key="item">
-                    <img :src="item.note_image" alt="">
-                    <div class="content-title">
+                      <div class="index-left index-all " >
+                        <div class="content-left" v-for=" (item,index)  in left" :key="index">
+                          <img :src='item.note_image'> 
+                          <div class="content-title">
 
-                        <div class="myself-title">{{item.title}}</div>
-                        
-                    </div>
-                    <div class="content-myself">
-                      <img :src="item.writer_img" alt="" class="myself-url">
-                      <p class="my-name">{{item.writer}}</p>
-                      <div class="zhan" @click="rightagree(index)">
-                      
-                      <img src="../assets/zhan1.png" alt="" class="myself-zhan" v-if="item.selected">
-                      <img src="../assets/zhan.png" alt="" class="myself-zhan" v-else>
-                      <p class="user-num">{{item.like}}</p>
+                              <div class="myself-title">{{item.title}}</div>
+                              
+                          </div>
+                          <div class="content-myself">
+                            <img :src="item.writer_img" alt="" class="myself-url">
+                            <p class="my-name">{{item.writer}}</p>
+                            <div class="zhan" @click="leftagree(index)" >
+                            
+                            <img src="../assets/zhan1.png" alt="" class="myself-zhan" v-if=" item.selected ">
+                            <img src="../assets/zhan.png" alt="" class="myself-zhan" v-else>
+                            <p class="user-num">{{item.like}}</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                      <div class="index-right index-all">
+                        <div class="content-right" v-for=" (item,index)  in right" :key="item">
+                          <img :src="item.note_image" alt="">
+                          <div class="content-title">
+
+                              <div class="myself-title">{{item.title}}</div>
+                              
+                          </div>
+                          <div class="content-myself">
+                            <img :src="item.writer_img" alt="" class="myself-url">
+                            <p class="my-name">{{item.writer}}</p>
+                            <div class="zhan" @click="rightagree(index)">
+                            
+                            <img src="../assets/zhan1.png" alt="" class="myself-zhan" v-if="item.selected">
+                            <img src="../assets/zhan.png" alt="" class="myself-zhan" v-else>
+                            <p class="user-num">{{item.like}}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                 </div>
             </div>
           </van-tab>
           <van-tab title="附近">
@@ -64,7 +67,8 @@
 </template>
 <script>
   import nearly from './common/nearly';
-  import follow from './common/follow'
+  import follow from './common/follow';
+  import BScroll from 'better-scroll'
 export default {
   name:'Index',
   components:{
@@ -102,7 +106,21 @@ export default {
      }else{
         this.right[e].like=+this.right[e].like - 1
      }
+    },
+    	initScroll() {
+       this.$nextTick(()=>{
+        if(!this.Scroll) {
+          // console.log('666')
+          this.Scroll = new BScroll(this.$refs.wrapper,{
+            click: true,      // 配置允许点击事件
+            scrollY: true     // 开启纵向滚动
+          })
+        } else {
+          this.Scroll.refresh()    // 重新计算 better-scroll，当 DOM 结构发生变化的时确保滚动效果正常
+        }
+      })
     }
+
   },
   created() {
     let that = this
@@ -120,6 +138,9 @@ export default {
    .catch(function(error){
     console.log(error);
    });
+  },
+  mounted() {
+    this.initScroll()
   },
 }
 </script>
@@ -155,8 +176,13 @@ input{
   height: 25px;
 }
 
+.scroll{
+   height: 86vh;
+   overflow: hidden;
+}
 .index-content{
   display: flex;
+  /* height: 80vh; */
   background: #F4F7F9
 }
 .index-all{

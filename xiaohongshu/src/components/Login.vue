@@ -79,7 +79,7 @@ export default {
 
     },
     goindex(){
-    this.$router.push({ path:'/index'  })
+    this.$router.push({ path:'/main'  })
     }
   },
 }

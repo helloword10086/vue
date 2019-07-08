@@ -77,6 +77,7 @@ export default {
   },
   
  Mounted() { 
+   //js实现盒子高度等于屏幕的高度
     console.log(this.$refs.scroll)
       console.log(window.screen.height)
       this.$refs.see.style.height = window.screen.height +'px' 
@@ -112,6 +113,9 @@ export default {
   /* display: none; */
   /* transform: translateY(100%); */
   animation: mymove 40s infinite linear;
+  height: 100vh;
+  width: 100wh;
+  
 }
 
 @keyframes mymove{

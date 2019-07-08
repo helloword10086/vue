@@ -91,7 +91,7 @@ export default {
         password:that.mima
        }
       })
-    this.$router.push({ path:'/index'  })
+      this.$router.push({ path:'/main'  })
     }
   },
 }

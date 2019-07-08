@@ -4,6 +4,19 @@ import Vue  from 'vue'
 
 Vue.use(Vuex)
 
-state={
-  
+ const state={
+  id:''
 }
+
+ const mutations={
+     selectid(state,id){
+       state.id = id
+     }
+}
+
+const store = new Vuex.Store({
+  state,
+  mutations
+})
+
+export default store

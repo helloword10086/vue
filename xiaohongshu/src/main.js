@@ -6,7 +6,7 @@ import router from './router'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import axios from 'axios'
-
+import store from './store'
 Vue.use(Vant);
 
 Vue.config.productionTip = false
@@ -18,6 +18,7 @@ Vue.prototype.$http = axios;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

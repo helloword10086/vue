@@ -32,9 +32,10 @@ body{
   
 }
 html{
-  width: 100%;
-  height: 100%;
-  background: #F4F7F9
+  width: 100vw;
+  height: 100vh;
+  background: #F4F7F9;
+
 }
 #app {
   /* background: #F4F7F9; */

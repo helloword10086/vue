@@ -1,7 +1,7 @@
 <template>
    <div class="index-content">
          <div class="index-left index-all " >
-           <div class="content-left" v-for=" (item,index)  in left" :key="index" >
+           <div class="content-left" v-for=" (item,index)  in left" :key="index"  @click="entry(item.id)">
              <img :src='item.img'> 
              <div class="content-title">
 
@@ -21,7 +21,7 @@
            </div>
          </div>
          <div class="index-right index-all">
-           <div class="content-right" v-for=" (item,index)  in right" :key="item">
+           <div class="content-right" v-for=" (item,index)  in right" :key="item" @click="entry(item.id)">
              <img :src="item.img" alt="">
              <div class="content-title">
 
@@ -50,6 +50,7 @@ export default {
     return {
         left:[],
         right:[],
+        tiezhi:[]
     }
   },
   // props:['tiezhi'],
@@ -72,7 +73,13 @@ export default {
    
   },
   methods: {
-    
+    entry(id) {
+      console.log(id)
+      this.$store.commit('selectid',id)
+      
+      console.log(this.$store.state.id)
+      this.$router.push({ path:'/detail'  })
+    }
   },
 }
 </script>
