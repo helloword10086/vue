@@ -11,8 +11,8 @@
                   <div class="index-content" >
 
                       <div class="index-left index-all " >
-                        <div class="content-left" v-for=" (item,index)  in left" :key="index">
-                          <img :src='item.note_image'> 
+                        <div class="content-left" v-for=" (item,index)  in left" :key="item.id" >
+                          <img :src='item.note_image' @click="detail(index + 1)"> 
                           <div class="content-title">
 
                               <div class="myself-title">{{item.title}}</div>
@@ -31,8 +31,8 @@
                         </div>
                       </div>
                       <div class="index-right index-all">
-                        <div class="content-right" v-for=" (item,index)  in right" :key="item">
-                          <img :src="item.note_image" alt="">
+                        <div class="content-right" v-for=" (item,index)  in right" :key="item.id" >
+                          <img :src="item.note_image" alt=""  @click='detail(index +1)'>
                           <div class="content-title">
 
                               <div class="myself-title">{{item.title}}</div>
@@ -107,18 +107,22 @@ export default {
         this.right[e].like=+this.right[e].like - 1
      }
     },
-    	initScroll() {
-       this.$nextTick(()=>{
-        if(!this.Scroll) {
-          // console.log('666')
+    detail(id){
+      
+      this.$store.commit('selectid',id)
+      this.$router.push({ path:'/detail'  })
+    },
+
+    initScroll() {
+      //  this.$nextTick(()=>{
+        
+           console.log('666')
           this.Scroll = new BScroll(this.$refs.wrapper,{
             click: true,      // 配置允许点击事件
             scrollY: true     // 开启纵向滚动
           })
-        } else {
-          this.Scroll.refresh()    // 重新计算 better-scroll，当 DOM 结构发生变化的时确保滚动效果正常
-        }
-      })
+        
+      // })
     }
 
   },
@@ -140,7 +144,10 @@ export default {
    });
   },
   mounted() {
-    this.initScroll()
+    this.$nextTick( () =>{
+
+      this.initScroll()
+    })
   },
 }
 </script>

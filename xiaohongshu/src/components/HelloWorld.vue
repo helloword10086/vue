@@ -78,17 +78,17 @@ export default {
   
  Mounted() { 
    //js实现盒子高度等于屏幕的高度
-    console.log(this.$refs.scroll)
-      console.log(window.screen.height)
-      this.$refs.see.style.height = window.screen.height +'px' 
-      console.log(this.$refs.see.style.height)
-    window.addEventListener('touchmove', (event) =>{
-      console.log(event)
-      event.preventDefault()
+    // console.log(this.$refs.scroll)
+    //   console.log(window.screen.height)
+    //   this.$refs.see.style.height = window.screen.height +'px' 
+    //   console.log(this.$refs.see.style.height)
+    // window.addEventListener('touchmove', (event) =>{
+    //   console.log(event)
+    //   event.preventDefault()
       // event.preventDefault()
       // this.$refs.scroll.scrollTop=0;
       
-    },false)
+    // },false)
     // document.body.addEventListener('scroll', function(e){
     //   console.log(1111)
     //     e.preventDefault();

@@ -1,7 +1,7 @@
 <template>
    <div class="index-content">
          <div class="index-left index-all " >
-           <div class="content-left" v-for=" (item,index)  in left" :key="index">
+           <div class="content-left" v-for=" (item,index)  in left" :key="item.id">
              <img :src='item.note_image'> 
              <div class="content-title">
 
@@ -21,7 +21,7 @@
            </div>
          </div>
          <div class="index-right index-all">
-           <div class="content-right" v-for=" (item,index)  in right" :key="item">
+           <div class="content-right" v-for=" (item,index)  in right" :key="item.id">
              <img :src="item.note_image" alt="">
              <div class="content-title">
 

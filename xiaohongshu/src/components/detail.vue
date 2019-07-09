@@ -1,6 +1,7 @@
 <template>
   <div class="contain">
     <div class="myself">
+      <img src="../assets/fanhui.png" alt="" class="fanhui" @click="fanhui">
       <img :src="tiezhi.avator" alt="" class="avat">
       <div class="name">{{tiezhi.uname}}</div>
       <img src="../assets/fen.png" alt="" class="my-follow fen-img">
@@ -20,6 +21,12 @@
         </div>
         <div class="comment">
           <div class="all-comment">共{{tiezhi.comment}}条评论</div>
+          <div class="every-comment" v-for="(item , index) in tiezhi.comments" :key="index">
+            <img :src="item.cavator" alt="" class="comment-url">
+            <p class="commen-name">{{item.cname}}</p>
+            <div class="comment-content">{{item.ctext}}</div>
+             <div class="comment-time">{{item.ctime}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,6 +75,9 @@ export default {
           this.Scroll.refresh()    // 重新计算 better-scroll，当 DOM 结构发生变化的时确保滚动效果正常
         }
       })
+    },
+    fanhui(){
+      this.$router.go(-1)
     }
   },
   mounted() {
@@ -88,6 +98,11 @@ export default {
   background: #fff;
   overflow: hidden;
   margin: 10px;
+}
+.fanhui{
+  position: relative;
+  top: 8px;
+  left: -131px;
 }
 .avat{
   height: 40px;
@@ -124,5 +139,48 @@ export default {
 .swiper img{
   height: 300px;
   width: 100%;
+}
+.title{
+  padding: 10px;
+  border-bottom:1px solid #E7E7E7;
+  font-size: 14px;
+  color: #333;
+
+}
+.comment{
+  margin: 10px;
+  color: #999;
+}
+.every-comment{
+  position: relative;
+  border-bottom:1px solid #E7E7E7;
+  overflow: hidden;
+  padding: 9px;
+  
+}
+.comment-url{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  padding: 10px;
+}
+.commen-name{
+  position: absolute;
+  top: -6px;
+  left: 68px;
+}
+.comment-content{
+  position: absolute;
+  top: 35px;
+  left: 68px;
+  color: #000;
+  overflow: hidden;
+}
+.comment-time{
+   /* position: absolute;
+  top: 38px;
+  left: 206px; */
+  float: right;
+  font-size: 12px
 }
 </style>
