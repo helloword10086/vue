@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "iview": "^3.4.2",
+    "jsonp": "^0.2.1",
     "vue": "^2.5.2",
+    "vue-jsonp": "^0.1.8",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

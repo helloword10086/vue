@@ -5,10 +5,10 @@
       <input type="text"  placeholder="大家都在搜“冰箱里的小宝宝”">
       <img src="../../assets/lei.png" alt="" class="header-right">
     </div>
-    <div class="main">
+    <!-- <div class="main">
       
-    </div>
-      <div class="good-scroll" ref='foot'>
+    </div> -->
+      <div class="goodscroll" ref='foot'>
        <div class="foot" >
 
         <div class= "good-flex">
@@ -108,7 +108,7 @@ export default {
   padding: 5px;
   border-radius: 33px;
 }
-.good-scroll{
+.goodscroll{
   height: 88vh;
   overflow: hidden;
 }

@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import originJSONP from 'jsonp'
 export default {
-  name: 'App'
+  name: 'App',
+  
+
+  created() {
+    console.log(666)
+    let OPTION = {
+  param: 'jsonpCallback',
+  prefix: 'callback'
+   }
+    originJSONP('http://s0.meituan.net/bs/?f=myfe/canary:/js/common-c0bc5c3a.js',OPTION).then(data =>{console.log(data)})
+  },
 }
 </script>
 

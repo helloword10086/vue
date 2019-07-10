@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css'; 
+import vuejsop from 'vue-jsonp'
 
 Vue.use(iView);
+Vue.use(vuejsop)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
