@@ -6,7 +6,8 @@ import router from './router'
 import iView from 'iview';
 import 'iview/dist/styles/iview.css'; 
 import vuejsop from 'vue-jsonp'
-
+import axios from 'axios'
+Vue.prototype.$http = axios;
 Vue.use(iView);
 Vue.use(vuejsop)
 Vue.config.productionTip = false
